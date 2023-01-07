@@ -1,0 +1,145 @@
+Index: Algorithm 1.ipynb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n \"cells\": [\r\n  {\r\n   \"cell_type\": \"code\",\r\n   \"execution_count\": 480,\r\n   \"id\": \"b8313874\",\r\n   \"metadata\": {},\r\n   \"outputs\": [],\r\n   \"source\": [\r\n    \"import numpy as np\\n\",\r\n    \"from numpy import random as rnd\"\r\n   ]\r\n  },\r\n  {\r\n   \"cell_type\": \"code\",\r\n   \"execution_count\": 481,\r\n   \"id\": \"b27c11b4\",\r\n   \"metadata\": {},\r\n   \"outputs\": [],\r\n   \"source\": [\r\n    \"# Use dispersity (between 1 and 3) to choose which system to return a radius from\\n\",\r\n    \"\\n\",\r\n    \"def pickRadius(dispersity):\\n\",\r\n    \"    if (dispersity == 1):\\n\",\r\n    \"        return (1/((np.pi)**0.5))\\n\",\r\n    \"    if (dispersity == 2):\\n\",\r\n    \"        a = np.array([((3/(2*(np.pi)))**0.5), ((1/(2*(np.pi)))**0.5)])\\n\",\r\n    \"        return rnd.choice(a , p = [0.5, 0.5])\\n\",\r\n    \"    if (dispersity == 3):\\n\",\r\n    \"        a = np.array([((15/(16*(np.pi)))**0.5), ((5/(4*(np.pi)))**0.5)])\\n\",\r\n    \"        return rnd.choice(a , p = [0.8, 0.2])\"\r\n   ]\r\n  },\r\n  {\r\n   \"cell_type\": \"code\",\r\n   \"execution_count\": 482,\r\n   \"id\": \"a47d5b26\",\r\n   \"metadata\": {},\r\n   \"outputs\": [],\r\n   \"source\": [\r\n    \"#Class for creating a disc\\n\",\r\n    \"# Cooridinates represent middle of discs\\n\",\r\n    \"# choose 1-3 for dispersity\\n\",\r\n    \"\\n\",\r\n    \"class config(): \\n\",\r\n    \"    def __init__(self, dispersity):\\n\",\r\n    \"        self.radius = pickRadius(dispersity)\\n\",\r\n    \"        self.x = (rnd.rand()) * 20\\n\",\r\n    \"        self.y = (rnd.rand()) * 20\\n\",\r\n    \"        return\"\r\n   ]\r\n  },\r\n  {\r\n   \"cell_type\": \"code\",\r\n   \"execution_count\": 483,\r\n   \"id\": \"17c1a375\",\r\n   \"metadata\": {},\r\n   \"outputs\": [],\r\n   \"source\": [\r\n    \"# iterates attempts of N\\n\",\r\n    \"#select dispersity scenario of 1-3\\n\",\r\n    \"\\n\",\r\n    \"def addDiscs(N, dispersity, overlapConstant = 1.0):\\n\",\r\n    \"    #defines new empty array\\n\",\r\n    \"    situ = np.array([])\\n\",\r\n    \"    \\n\",\r\n    \"    for i in range(N):\\n\",\r\n    \"        a = config(dispersity)\\n\",\r\n    \"        #checks if disc is hitting sides\\n\",\r\n    \"        insideBox = (\\n\",\r\n    \"            ((a.x - a.radius > 0) and (a.x + a.radius < 20)) \\n\",\r\n    \"            and ((a.y - a.radius > 0) and (a.y + a.radius < 20))\\n\",\r\n    \"        )\\n\",\r\n    \"        \\n\",\r\n    \"        # function to apply across array to check if new disc is hitting any exsisting discs\\n\",\r\n    \"        def notHitting(a2):\\n\",\r\n    \"            return (((((a.x - a2.x)**2) + ((a.y - a2.y)**2))**0.5) >\\n\",\r\n    \"                (overlapConstant * (a.radius + a2.radius)))\\n\",\r\n    \"        applyAll = np.vectorize(notHitting)\\n\",\r\n    \"        \\n\",\r\n    \"        #checking hitting any other disc, accounting for its the first disc to be placed\\n\",\r\n    \"        if (situ.size == 0):\\n\",\r\n    \"            notHitting = True\\n\",\r\n    \"        else:\\n\",\r\n    \"            hittingArray = applyAll(situ)\\n\",\r\n    \"            notHitting = np.all(hittingArray)\\n\",\r\n    \"        \\n\",\r\n    \"        # appends disc to array if it meets conditions\\n\",\r\n    \"        if (notHitting and insideBox):\\n\",\r\n    \"            situ = np.append(situ, a)\\n\",\r\n    \"            \\n\",\r\n    \"        # Returns completed array after end of loop\\n\",\r\n    \"    \\n\",\r\n    \"    # Returns completed array after end of loop\\n\",\r\n    \"    return situ\\n\",\r\n    \"        \"\r\n   ]\r\n  },\r\n  {\r\n   \"cell_type\": \"code\",\r\n   \"execution_count\": 484,\r\n   \"id\": \"f7e9e488\",\r\n   \"metadata\": {\r\n    \"scrolled\": true\r\n   },\r\n   \"outputs\": [\r\n    {\r\n     \"name\": \"stdout\",\r\n     \"output_type\": \"stream\",\r\n     \"text\": [\r\n      \"5\\n\",\r\n      \"[<__main__.config object at 0x000001D964F88A90>\\n\",\r\n      \" <__main__.config object at 0x000001D964F88EE0>\\n\",\r\n      \" <__main__.config object at 0x000001D964F88880>\\n\",\r\n      \" <__main__.config object at 0x000001D964F88430>\\n\",\r\n      \" <__main__.config object at 0x000001D964F88C40>]\\n\"\r\n     ]\r\n    }\r\n   ],\r\n   \"source\": [\r\n    \"testArray = addDiscs(10,1)\\n\",\r\n    \"\\n\",\r\n    \"print(testArray.size)\\n\",\r\n    \"print(testArray)\"\r\n   ]\r\n  },\r\n  {\r\n   \"cell_type\": \"code\",\r\n   \"execution_count\": 520,\r\n   \"id\": \"d3281efb\",\r\n   \"metadata\": {},\r\n   \"outputs\": [],\r\n   \"source\": [\r\n    \"# defines a class for a new random point on the square\\n\",\r\n    \"class point(): \\n\",\r\n    \"    def __init__(self):\\n\",\r\n    \"        #defines random x and y coordinates between 0 and 20\\n\",\r\n    \"        self.x = (rnd.rand()) * 20\\n\",\r\n    \"        self.y = (rnd.rand()) * 20\\n\",\r\n    \"        return\\n\",\r\n    \"    # a function that takes an array of discs and determines if the point is within any radius\\n\",\r\n    \"    def inAnyCircle(self, discArray):\\n\",\r\n    \"        for i in discArray: \\n\",\r\n    \"            inCircle = ((self.x - i.x)**2 + (self.y - i.y)**2)**0.5 < i.radius\\n\",\r\n    \"            if (inCircle == True):\\n\",\r\n    \"                return True\\n\",\r\n    \"        return False\\n\",\r\n    \"            \\n\",\r\n    \"def packingFraction(discArray, NSample):\\n\",\r\n    \"    validCount = 0\\n\",\r\n    \"    for i in range(NSample):\\n\",\r\n    \"        singlePoint = point()\\n\",\r\n    \"        if (singlePoint.inAnyCircle(discArray) == True):\\n\",\r\n    \"            validCount += 1\\n\",\r\n    \"    return validCount / NSample\\n\",\r\n    \"\\n\",\r\n    \"#need to both regenerate the discs and points every time, so below function is invalid\\n\",\r\n    \"\\n\",\r\n    \"def averagedPackingFraction(NReps, discArray, NSample):\\n\",\r\n    \"    fractions = np.array([])\\n\",\r\n    \"    for i in range(NReps):\\n\",\r\n    \"        fractions = np.append(fractions, (packingFraction(discArray, NSample)))\\n\",\r\n    \"    return np.mean(fractions)\\n\"\r\n   ]\r\n  },\r\n  {\r\n   \"cell_type\": \"code\",\r\n   \"execution_count\": 564,\r\n   \"id\": \"8124c529\",\r\n   \"metadata\": {},\r\n   \"outputs\": [\r\n    {\r\n     \"data\": {\r\n      \"text/plain\": [\r\n       \"0.01\"\r\n      ]\r\n     },\r\n     \"execution_count\": 564,\r\n     \"metadata\": {},\r\n     \"output_type\": \"execute_result\"\r\n    }\r\n   ],\r\n   \"source\": [\r\n    \"packingFraction(testArray, 200)\"\r\n   ]\r\n  },\r\n  {\r\n   \"cell_type\": \"code\",\r\n   \"execution_count\": 565,\r\n   \"id\": \"c5efb6af\",\r\n   \"metadata\": {},\r\n   \"outputs\": [],\r\n   \"source\": [\r\n    \"def combinedFunction(dispersity, overlapConstant, NParticles, NSample, NRep):\\n\",\r\n    \"    fractions = np.array([])\\n\",\r\n    \"    for i in range(NRep):\\n\",\r\n    \"        discArray = addDiscs(NParticles, dispersity, overlapConstant)\\n\",\r\n    \"        fractions = np.append(fractions, (packingFraction(discArray, NSample)))\\n\",\r\n    \"    return np.mean(fractions)    \\n\",\r\n    \"    \"\r\n   ]\r\n  },\r\n  {\r\n   \"cell_type\": \"code\",\r\n   \"execution_count\": 581,\r\n   \"id\": \"738b7969\",\r\n   \"metadata\": {},\r\n   \"outputs\": [\r\n    {\r\n     \"data\": {\r\n      \"text/plain\": [\r\n       \"0.37979000000000007\"\r\n      ]\r\n     },\r\n     \"execution_count\": 581,\r\n     \"metadata\": {},\r\n     \"output_type\": \"execute_result\"\r\n    }\r\n   ],\r\n   \"source\": [\r\n    \"combinedFunction(3, 1, 1000, 1000, 100)\"\r\n   ]\r\n  }\r\n ],\r\n \"metadata\": {\r\n  \"kernelspec\": {\r\n   \"display_name\": \"Python 3 (ipykernel)\",\r\n   \"language\": \"python\",\r\n   \"name\": \"python3\"\r\n  },\r\n  \"language_info\": {\r\n   \"codemirror_mode\": {\r\n    \"name\": \"ipython\",\r\n    \"version\": 3\r\n   },\r\n   \"file_extension\": \".py\",\r\n   \"mimetype\": \"text/x-python\",\r\n   \"name\": \"python\",\r\n   \"nbconvert_exporter\": \"python\",\r\n   \"pygments_lexer\": \"ipython3\",\r\n   \"version\": \"3.9.12\"\r\n  }\r\n },\r\n \"nbformat\": 4,\r\n \"nbformat_minor\": 5\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Algorithm 1.ipynb b/Algorithm 1.ipynb
+--- a/Algorithm 1.ipynb	(revision d34e41ef0d52d3ce3348e677083f13c27029d8e2)
++++ b/Algorithm 1.ipynb	(date 1673088974753)
+@@ -2,7 +2,7 @@
+  "cells": [
+   {
+    "cell_type": "code",
+-   "execution_count": 480,
++   "execution_count": 1,
+    "id": "b8313874",
+    "metadata": {},
+    "outputs": [],
+@@ -13,7 +13,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 481,
++   "execution_count": 2,
+    "id": "b27c11b4",
+    "metadata": {},
+    "outputs": [],
+@@ -33,7 +33,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 482,
++   "execution_count": 3,
+    "id": "a47d5b26",
+    "metadata": {},
+    "outputs": [],
+@@ -52,7 +52,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 483,
++   "execution_count": 4,
+    "id": "17c1a375",
+    "metadata": {},
+    "outputs": [],
+@@ -98,7 +98,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 484,
++   "execution_count": 5,
+    "id": "f7e9e488",
+    "metadata": {
+     "scrolled": true
+@@ -108,12 +108,16 @@
+      "name": "stdout",
+      "output_type": "stream",
+      "text": [
+-      "5\n",
+-      "[<__main__.config object at 0x000001D964F88A90>\n",
+-      " <__main__.config object at 0x000001D964F88EE0>\n",
+-      " <__main__.config object at 0x000001D964F88880>\n",
+-      " <__main__.config object at 0x000001D964F88430>\n",
+-      " <__main__.config object at 0x000001D964F88C40>]\n"
++      "9\n",
++      "[<__main__.config object at 0x00000178ABE32790>\n",
++      " <__main__.config object at 0x00000178ABE327F0>\n",
++      " <__main__.config object at 0x00000178ABE32B50>\n",
++      " <__main__.config object at 0x00000178ABE328E0>\n",
++      " <__main__.config object at 0x00000178ABE32730>\n",
++      " <__main__.config object at 0x00000178ABE32670>\n",
++      " <__main__.config object at 0x00000178ABE32490>\n",
++      " <__main__.config object at 0x00000178ABE32DC0>\n",
++      " <__main__.config object at 0x00000178ABE32E20>]\n"
+      ]
+     }
+    ],
+@@ -126,7 +130,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 520,
++   "execution_count": 6,
+    "id": "d3281efb",
+    "metadata": {},
+    "outputs": [],
+@@ -165,17 +169,15 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 564,
++   "execution_count": 7,
+    "id": "8124c529",
+    "metadata": {},
+    "outputs": [
+     {
+      "data": {
+-      "text/plain": [
+-       "0.01"
+-      ]
++      "text/plain": "0.025"
+      },
+-     "execution_count": 564,
++     "execution_count": 7,
+      "metadata": {},
+      "output_type": "execute_result"
+     }
+@@ -186,7 +188,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 565,
++   "execution_count": 8,
+    "id": "c5efb6af",
+    "metadata": {},
+    "outputs": [],
+@@ -196,23 +198,21 @@
+     "    for i in range(NRep):\n",
+     "        discArray = addDiscs(NParticles, dispersity, overlapConstant)\n",
+     "        fractions = np.append(fractions, (packingFraction(discArray, NSample)))\n",
+-    "    return np.mean(fractions)    \n",
++    "    return np.mean(fractions)\n",
+     "    "
+    ]
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 581,
++   "execution_count": 9,
+    "id": "738b7969",
+    "metadata": {},
+    "outputs": [
+     {
+      "data": {
+-      "text/plain": [
+-       "0.37979000000000007"
+-      ]
++      "text/plain": "0.37812000000000007"
+      },
+-     "execution_count": 581,
++     "execution_count": 9,
+      "metadata": {},
+      "output_type": "execute_result"
+     }
