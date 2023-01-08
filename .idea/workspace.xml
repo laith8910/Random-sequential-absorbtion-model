@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e378dd64-547c-4310-9c25-81ca141addec" name="Changes" comment="Move library import">
+    <list default="true" id="e378dd64-547c-4310-9c25-81ca141addec" name="Changes" comment="Add statistical accuracy and code to save file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project Code.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Project Code.ipynb" afterDir="false" />
     </list>
@@ -114,7 +114,21 @@
       <option name="project" value="LOCAL" />
       <updated>1673184744497</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add images and statistical accuracy">
+      <created>1673190877633</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1673190877633</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add statistical accuracy and code to save file">
+      <created>1673191117232</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673191117232</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +179,8 @@
     <MESSAGE value="Add files" />
     <MESSAGE value="Add plots" />
     <MESSAGE value="Move library import" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move library import" />
+    <MESSAGE value="Add images and statistical accuracy" />
+    <MESSAGE value="Add statistical accuracy and code to save file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add statistical accuracy and code to save file" />
   </component>
 </project>
