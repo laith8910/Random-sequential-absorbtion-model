@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e378dd64-547c-4310-9c25-81ca141addec" name="Changes" comment="Move library import">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Algorithm 1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Algorithm 1.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project Code.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Project Code.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Statistical_Accuracy" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,7 +49,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/laith/OneDrive - Imperial College London/MATE 40001 - Mathematics and Computing 1/Python/Coding Challenge/Random-sequential-absorbtion-model/Finalwithmatplot.ipynb",
+    "last_opened_file_path": "C:/Users/laith/OneDrive - Imperial College London/MATE 40001 - Mathematics and Computing 1/Python/Coding Challenge/Random-sequential-absorbtion-model",
     "settings.editor.selected.configurable": "org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable",
     "two.files.diff.last.used.file": "C:/Users/laith/OneDrive - Imperial College London/MATE 40001 - Mathematics and Computing 1/Python/Coding Challenge/Random-sequential-absorbtion-model/Finalwithmatplot.ipynb"
   }
