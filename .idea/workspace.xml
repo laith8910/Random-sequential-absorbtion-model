@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e378dd64-547c-4310-9c25-81ca141addec" name="Changes" comment="Add files">
+    <list default="true" id="e378dd64-547c-4310-9c25-81ca141addec" name="Changes" comment="Move library import">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Algorithm 1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Algorithm 1.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ComputingChallenge.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ComputingChallenge.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +29,13 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -43,8 +49,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/laith/OneDrive - Imperial College London/MATE 40001 - Mathematics and Computing 1/Python/Coding Challenge/Random-sequential-absorbtion-model",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable"
+    "last_opened_file_path": "C:/Users/laith/OneDrive - Imperial College London/MATE 40001 - Mathematics and Computing 1/Python/Coding Challenge/Random-sequential-absorbtion-model/Finalwithmatplot.ipynb",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable",
+    "two.files.diff.last.used.file": "C:/Users/laith/OneDrive - Imperial College London/MATE 40001 - Mathematics and Computing 1/Python/Coding Challenge/Random-sequential-absorbtion-model/Finalwithmatplot.ipynb"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -86,7 +93,28 @@
       <option name="project" value="LOCAL" />
       <updated>1673169282462</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add plots">
+      <created>1673179008107</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1673179008107</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add plots">
+      <created>1673179263662</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673179263662</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Move library import">
+      <created>1673184744497</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673184744497</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,6 +163,8 @@
     <MESSAGE value="Import matplotlib" />
     <MESSAGE value="Add config code and files" />
     <MESSAGE value="Add files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add files" />
+    <MESSAGE value="Add plots" />
+    <MESSAGE value="Move library import" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move library import" />
   </component>
 </project>
